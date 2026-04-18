@@ -1,6 +1,10 @@
 - naam: Appeltaart
   categorie: Taart en koekjes
+  keuken: Nederlands
   bereidingstijd: 90
+  wachttijd: null
+  oventemperatuur: 180
+  oventijd: 45
   personen: 8
   ingredienten:
     - 300g bloem
@@ -15,25 +19,40 @@
     - Schil de appels en snijd in stukjes.
     - Verdeel over het deeg.
     - Bak 45 minuten op 180°C tot goudbruin.
-  notities: "De taart is het lekkerst als je hem een dag van tevoren maakt."
+  tips:
+    - De taart is het lekkerst als je hem een dag van tevoren maakt.
+    - Gebruik bij voorkeur zure appels zoals Elstar of Goudrenet.
+  tags:
+    - taart
+    - appel
+    - klassiek
 
 - naam: Spaghetti Aglio e Olio
   categorie: Pasta en Rijst
+  keuken: Italiaans
   bereidingstijd: 20
+  wachttijd: null
+  oventemperatuur: null
+  oventijd: null
   personen: 4
   ingredienten:
     - 400g spaghetti
     - 6 teentjes knoflook
-    - 150ml olijfolie
-    - rode peper
-    - zout
-    - peterselie
+    - 150ml olijfolie extra vierge
+    - 1 rode peper
+    - zout en peper naar smaak
+    - handvol verse peterselie
   stappen:
-    - Kook de spaghetti volgens aanwijzing totdat deze al dente is.
-    - Snijd knoflook fijn.
-    - Verhit olijfolie in een grote pan op laag vuur.
-    - Voeg knoflook toe en bruis zachtjes totdat deze goudgeel is.
-    - Voeg rode peper toe.
-    - Giet afgekookte pasta in de pan en meng goed.
-    - Bestrooi met vers gehakte peterselie.
-  notities: "Dit is een klassieker uit Napels — simpel, snel en veel smaak."
+    - Kook de spaghetti al dente volgens de verpakking. Bewaar een kopje kookvocht.
+    - Verhit olijfolie op laag vuur en bak knoflook en rode peper 2-3 minuten goudgeel.
+    - Voeg afgegoten pasta toe aan de pan met een scheut kookvocht.
+    - Meng goed, voeg peterselie toe en breng op smaak.
+    - Serveer direct op voorverwarmde borden.
+  tips:
+    - Dit is een klassieker uit Napels — simpel, snel en veel smaak.
+    - Verbrand de knoflook niet, bak op laag vuur.
+  tags:
+    - pasta
+    - knoflook
+    - snel klaar
+    - vegetarisch

@@ -16,16 +16,21 @@ recepten.each do |recept|
   naam = recept['naam']
   slug = naam.downcase.gsub(/\s+/, '-').gsub(/[^\w-]/, '')
 
-  # Front matter
+  # Front matter met alle velden
   front_matter = {
     'layout' => 'recept',
     'naam' => recept['naam'],
     'categorie' => recept['categorie'],
+    'keuken' => recept['keuken'],
     'bereidingstijd' => recept['bereidingstijd'],
+    'wachttijd' => recept['wachttijd'],
+    'oventemperatuur' => recept['oventemperatuur'],
+    'oventijd' => recept['oventijd'],
     'personen' => recept['personen'],
     'ingredienten' => recept['ingredienten'],
     'stappen' => recept['stappen'],
-    'notities' => recept['notities']
+    'tips' => recept['tips'],
+    'tags' => recept['tags']
   }
 
   # Schrijf Markdown bestand

@@ -1,3 +1,7 @@
 = Recepten
 
 Bewaren Recepten
+
+
+Site bekijken:
+bundle exec jekyll serve

@@ -104,6 +104,7 @@ GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodi
 
 ## Afspraken
 
+- **Git commits:** Commit alleen als je daarom vraagt. Maak wijzigingen klaar, vraag "zal ik committen?" en wacht op goedkeuring.
 - **Toevoegen van recepten:** Voeg altijd een volledig blok toe aan `_data/recepten.yml`. Geen velden weglaten; gebruik `null` of een lege string als iets niet van toepassing is.
 - **Volgorde:** Recepten verschijnen op de homepagina in de volgorde van `recepten.yml`. Plaats nieuwe recepten bovenaan voor nieuwste-eerst, of onderaan voor stabiele volgorde.
 - **Naam uniek:** Zorg dat receptnamen niet identiek zijn; Jekyll gebruikt deze later voor URL's.

@@ -13,6 +13,9 @@ collections:
   recepten:
     output: true
     permalink: /recepten/:slug/
+  categorie:
+    output: true
+    permalink: /categorie/:slug/
 
 # Defaults
 defaults:
@@ -26,6 +29,11 @@ defaults:
       type: "recepten"
     values:
       layout: "recept"
+  - scope:
+      path: ""
+      type: "categorie"
+    values:
+      layout: "categorie"
 
 # Uitsluiting bestanden
 exclude:

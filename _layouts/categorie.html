@@ -8,14 +8,21 @@ layout: default
 </div>
 
 <div class="recepten-grid">
+  {% assign colors = "#38BDF8,#0EA5E9,#0284C7,#0369A1,#075985,#0C4A6E,#064E89,#023E8A,#0A2E5C" | split: "," %}
+  {% assign text_colors = "white,white,white,white,white,white,white,white,white" | split: "," %}
+  {% assign color_index = 0 %}
+
   {% for recept in site.data.recepten %}
     {% if recept.categorie == page.categorie_naam %}
       {% assign slug = recept.naam | downcase | replace: " ", "-" | replace: "é", "e" | replace: "è", "e" %}
-      <a href="{{ slug | prepend: '/recepten/' | append: '/' | relative_url }}" class="recept-card">
+      {% assign color = colors[color_index] %}
+      {% assign text_color = text_colors[color_index] %}
+      <a href="{{ slug | prepend: '/recepten/' | append: '/' | relative_url }}" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
         <h3>{{ recept.naam }}</h3>
         <p>{{ recept.categorie }}</p>
         <span class="categorie">{{ recept.categorie }}</span>
       </a>
+      {% assign color_index = color_index | plus: 1 %}
     {% endif %}
   {% endfor %}
 </div>

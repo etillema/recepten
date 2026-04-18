@@ -7,6 +7,9 @@ layout: default
 
   <div class="recept-meta">
     <span class="categorie">{{ page.categorie }}</span>
+    {% if page.keuken %}
+      <span class="keuken">🌍 {{ page.keuken }}</span>
+    {% endif %}
     {% if page.bereidingstijd %}
       <span class="bereidingstijd">⏱ {{ page.bereidingstijd }} min</span>
     {% endif %}
@@ -14,6 +17,20 @@ layout: default
       <span class="personen">👥 {{ page.personen }} personen</span>
     {% endif %}
   </div>
+
+  {% if page.oventemperatuur or page.oventijd or page.wachttijd %}
+    <div class="recept-details">
+      {% if page.oventemperatuur %}
+        <p><strong>Oventemperatuur:</strong> {{ page.oventemperatuur }}°C</p>
+      {% endif %}
+      {% if page.oventijd %}
+        <p><strong>Oventijd:</strong> {{ page.oventijd }} minuten</p>
+      {% endif %}
+      {% if page.wachttijd %}
+        <p><strong>Wachttijd:</strong> {{ page.wachttijd }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
 
   {% if page.ingredienten %}
     <section class="ingredienten">
@@ -37,14 +54,27 @@ layout: default
     </section>
   {% endif %}
 
-  {% if page.notities %}
-    <aside class="notities">
-      <h3>💡 Tip</h3>
-      <p>{{ page.notities }}</p>
+  {% if page.tips %}
+    <aside class="tips">
+      <h3>💡 Tips</h3>
+      <ul>
+        {% for tip in page.tips %}
+          <li>{{ tip }}</li>
+        {% endfor %}
+      </ul>
     </aside>
   {% endif %}
 
+  {% if page.tags %}
+    <div class="tags">
+      <strong>Tags:</strong>
+      {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
   <nav class="recept-nav">
-    <a href="{{ '/' | relative_url }}">← Terug naar recepten</a>
+    <a href="{{ '/' | relative_url }}">← Terug naar overzicht</a>
   </nav>
 </article>

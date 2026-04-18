@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="recept">
+<article class="recept" id="recept-voor-pdf">
   <h1>{{ page.naam }}</h1>
 
   <div class="recept-meta">
@@ -74,7 +74,66 @@ layout: default
     </div>
   {% endif %}
 
+  <div class="recept-actions">
+    <button id="download-txt-btn" class="btn btn-primary">📥 Download als TXT</button>
+  </div>
+
   <nav class="recept-nav">
     <a href="{{ '/' | relative_url }}">← Terug naar overzicht</a>
   </nav>
 </article>
+
+<script>
+document.getElementById('download-txt-btn').addEventListener('click', function() {
+  const receptNaam = '{{ page.naam }}';
+  const txtContent = document.body.innerText;
+
+  // Extraheer alleen het recept-gedeelte
+  const lines = [];
+  lines.push('═══════════════════════════════════════════');
+  lines.push(receptNaam.toUpperCase());
+  lines.push('═══════════════════════════════════════════');
+  lines.push('');
+
+  // Header info
+  lines.push('Categorie: {{ page.categorie }}');
+  {% if page.keuken %}lines.push('Keuken: {{ page.keuken }}');{% endif %}
+  {% if page.bereidingstijd %}lines.push('Bereidingstijd: {{ page.bereidingstijd }} minuten');{% endif %}
+  {% if page.personen %}lines.push('Personen: {{ page.personen }}');{% endif %}
+  {% if page.oventemperatuur %}lines.push('Oventemperatuur: {{ page.oventemperatuur }}°C');{% endif %}
+  {% if page.oventijd %}lines.push('Oventijd: {{ page.oventijd }} minuten');{% endif %}
+  lines.push('');
+
+  lines.push('INGREDIËNTEN');
+  lines.push('───────────────────────────────────────────');
+  {% for ingredient in page.ingredienten %}
+  lines.push('• {{ ingredient }}');
+  {% endfor %}
+  lines.push('');
+
+  lines.push('BEREIDING');
+  lines.push('───────────────────────────────────────────');
+  {% for stap in page.stappen %}
+  lines.push('{{ forloop.index }}. {{ stap }}');
+  {% endfor %}
+  lines.push('');
+
+  {% if page.tips %}
+  lines.push('TIPS');
+  lines.push('───────────────────────────────────────────');
+  {% for tip in page.tips %}
+  lines.push('• {{ tip }}');
+  {% endfor %}
+  lines.push('');
+  {% endif %}
+
+  // Maak download
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '{{ page.naam | slugify }}.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+</script>

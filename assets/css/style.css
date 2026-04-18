@@ -294,6 +294,37 @@ body {
   background-color: var(--color-accent);
 }
 
+/* Knoppen */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+}
+
+.recept-actions {
+  margin: 2rem 0;
+  text-align: center;
+}
+
 /* Footer */
 footer {
   background-color: var(--color-primary);
@@ -305,6 +336,195 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+/* PDF Receptkaart */
+.pdf-receptkaart {
+  display: none;
+}
+
+.pdf-header {
+  margin-bottom: 8mm;
+  border-bottom: 2pt solid #333;
+  padding-bottom: 4mm;
+}
+
+.pdf-header h1 {
+  margin: 0 0 3mm 0;
+  font-size: 20pt;
+  color: #333;
+  font-weight: bold;
+}
+
+.pdf-meta {
+  display: flex;
+  gap: 8mm;
+  font-size: 11pt;
+  color: #666;
+}
+
+.pdf-info {
+  margin-bottom: 8mm;
+  font-size: 11pt;
+  line-height: 1.4;
+}
+
+.pdf-info div {
+  margin: 2mm 0;
+}
+
+.pdf-section {
+  margin-bottom: 8mm;
+}
+
+.pdf-section h2 {
+  margin: 6mm 0 3mm 0;
+  font-size: 13pt;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1pt solid #ddd;
+  padding-bottom: 2mm;
+}
+
+.pdf-section ul,
+.pdf-section ol {
+  margin: 0 0 0 8mm;
+  padding: 0;
+  font-size: 11pt;
+  line-height: 1.4;
+}
+
+.pdf-section li {
+  margin-bottom: 2mm;
+}
+
+/* Print/PDF */
+@media print {
+  * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background-color: white !important;
+  }
+
+  body {
+    font-size: 8px;
+    line-height: 1.1;
+    color: #000;
+  }
+
+  .recept {
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: white !important;
+    margin: 0 !important;
+  }
+
+  .recept h1 {
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 1px 0 !important;
+    border-bottom: 0.5px solid #000;
+    padding: 0 !important;
+  }
+
+  .recept-meta {
+    font-size: 7px;
+    gap: 2px;
+    margin-bottom: 2px !important;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .recept-meta span {
+    padding: 0 1px;
+    font-size: 7px;
+    background-color: transparent;
+    border: none;
+    margin-right: 2px;
+  }
+
+  .recept-details {
+    font-size: 7px;
+    padding: 0 !important;
+    margin: 1px 0 !important;
+  }
+
+  .recept-details p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.1;
+  }
+
+  .ingredienten,
+  .stappen,
+  .tips {
+    margin-bottom: 2px !important;
+    padding: 0 !important;
+  }
+
+  .ingredienten h2,
+  .stappen h2,
+  .tips h3 {
+    font-size: 9px;
+    font-weight: bold;
+    margin: 1px 0 0px 0 !important;
+    padding: 0 !important;
+  }
+
+  .ingredienten ul,
+  .stappen ol {
+    margin-left: 6px !important;
+    padding: 0 !important;
+    font-size: 7px;
+  }
+
+  .ingredienten li,
+  .stappen li {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1;
+  }
+
+  .tips {
+    background-color: transparent !important;
+    padding: 0 !important;
+    border-left: none !important;
+    font-size: 7px;
+  }
+
+  .tips ul {
+    margin-left: 6px !important;
+    padding: 0 !important;
+  }
+
+  .tips li {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1;
+  }
+
+  .tags {
+    font-size: 7px;
+    margin-top: 1px !important;
+  }
+
+  .tag {
+    font-size: 6px;
+    padding: 0;
+    background-color: transparent !important;
+    margin-right: 1px;
+  }
+
+  .recept-actions,
+  .recept-nav,
+  footer {
+    display: none !important;
+  }
 }
 
 /* Responsief */

@@ -2,7 +2,7 @@ title: Recepten
 author: Esther
 description: Een verzameling van favoriete recepten
 url: "https://username.github.io/recepten"
-baseurl: "/recepten"
+baseurl: ""  # Lokaal testen: "" / GitHub Pages: "/recepten"
 
 # Jekyll instellingen
 theme: null

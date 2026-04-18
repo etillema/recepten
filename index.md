@@ -8,7 +8,8 @@ Welkom! Dit is mijn collectie favoriete recepten. Klik op een recept om het voll
 
 <div class="recepten-grid">
   {% for recept in site.data.recepten %}
-    <a href="#" class="recept-card">
+    {% assign slug = recept.naam | downcase | replace: " ", "-" | replace: "é", "e" | replace: "è", "e" %}
+    <a href="{{ slug | prepend: '/recepten/' | append: '/' | relative_url }}" class="recept-card">
       <h3>{{ recept.naam }}</h3>
       <p>{{ recept.categorie }}</p>
       <span class="categorie">{{ recept.categorie }}</span>

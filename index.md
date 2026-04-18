@@ -1,8 +1,8 @@
 ---
-title: Recepten
+title: Beproefd!!
 ---
 
-# Recepten
+# Beproefd!!
 
 Welkom! Dit is mijn collectie favoriete recepten. Klik op een recept om het volledig recept te zien.
 

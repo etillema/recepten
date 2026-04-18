@@ -2,17 +2,20 @@
 title: Beproefd!!
 ---
 
-# Beproefd!!
+<h1 class="hero-title">Beproefd!!</h1>
 
-Welkom! Dit is mijn collectie favoriete recepten. Klik op een recept om het volledig recept te zien.
-
-<div class="recepten-grid">
-  {% for recept in site.data.recepten %}
-    {% assign slug = recept.naam | downcase | replace: " ", "-" | replace: "é", "e" | replace: "è", "e" %}
-    <a href="{{ slug | prepend: '/recepten/' | append: '/' | relative_url }}" class="recept-card">
-      <h3>{{ recept.naam }}</h3>
-      <p>{{ recept.categorie }}</p>
-      <span class="categorie">{{ recept.categorie }}</span>
+<div class="categorieën-grid">
+  {% for categorie in site.data.categories %}
+    {% assign count = 0 %}
+    {% for recept in site.data.recepten %}
+      {% if recept.categorie == categorie.naam %}
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    
+    <a href="{{ categorie.slug | prepend: '/categorie/' | append: '/' | relative_url }}" class="categorie-card" style="background-color: {{ categorie.kleur }}">
+      <h3>{{ categorie.naam }}</h3>
+      <p>{{ count }} recepten</p>
     </a>
   {% endfor %}
 </div>

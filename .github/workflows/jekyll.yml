@@ -30,6 +30,9 @@ jobs:
       - name: Generate recipe pages from YAML
         run: ruby scripts/generate_recipes.rb
 
+      - name: Generate category pages from YAML
+        run: ruby scripts/generate_categories.rb
+
       - name: Build Jekyll site
         run: bundle exec jekyll build
 

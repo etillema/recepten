@@ -1,0 +1,35 @@
+- naam: Voorgerecht
+  slug: voorgerecht
+  kleur: "#2E8B57"      # Seagreen
+
+- naam: Stoofgerecht
+  slug: stoofgerecht
+  kleur: "#90EE90"      # Lichtgroen
+
+- naam: Pasta en Rijst
+  slug: pasta-en-rijst
+  kleur: "#1B6B2B"      # Donkergroen
+
+- naam: Ovengerecht
+  slug: ovengerecht
+  kleur: "#228B22"      # Forestgreen
+
+- naam: Salades
+  slug: salades
+  kleur: "#6BCB77"      # Groen
+
+- naam: Bijgerecht
+  slug: bijgerecht
+  kleur: "#0D4D0D"      # Zeer donkergroen
+
+- naam: Soep
+  slug: soep
+  kleur: "#3CB371"      # Mediumseagreen
+
+- naam: Nagerecht
+  slug: nagerecht
+  kleur: "#57BE7C"      # Middelgroen
+
+- naam: Taart en koekjes
+  slug: taart-en-koekjes
+  kleur: "#7FD87F"      # Lichtgroen-midden

@@ -17,7 +17,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: var(--color-text);
-  background-color: #fafafa;
+  background-color: #1a3a52;
 }
 
 /* Navbar */
@@ -48,12 +48,66 @@ body {
   font-size: 1.8rem;
 }
 
+/* Hero titel */
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  letter-spacing: 2px;
+}
+
 /* Container */
 .container {
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 0 var(--spacing-unit);
-  min-height: calc(100vh - 200px);
+  min-height: 100vh;
+}
+
+/* Categorieën grid */
+.categorieën-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.categorie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-height: 200px;
+}
+
+.categorie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.categorie-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.categorie-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.categorie-card p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
 /* Recepten lijstweergave */

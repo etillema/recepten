@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="categorie-header">
+  <h1>{{ page.categorie_naam }}</h1>
+  <p>{{ page.categorie_count }} recepten in deze categorie</p>
+</div>
+
+<div class="recepten-grid">
+  {% for recept in site.data.recepten %}
+    {% if recept.categorie == page.categorie_naam %}
+      {% assign slug = recept.naam | downcase | replace: " ", "-" | replace: "é", "e" | replace: "è", "e" %}
+      <a href="{{ slug | prepend: '/recepten/' | append: '/' | relative_url }}" class="recept-card">
+        <h3>{{ recept.naam }}</h3>
+        <p>{{ recept.categorie }}</p>
+        <span class="categorie">{{ recept.categorie }}</span>
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<nav class="categorie-nav">
+  <a href="{{ '/' | relative_url }}">← Terug naar overzicht</a>
+</nav>

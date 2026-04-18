@@ -9,8 +9,8 @@ Een eenvoudige, mooie receptenwebsite gebouwd met Jekyll. Recepten worden opgesl
 | Keuze | Waarde |
 |---|---|
 | Jekyll-versie | 4.x (via Gemfile) |
-| Deployment | Klassieke GitHub Pages |
-| Contentformaat | YAML in `_data/recepten.yml` |
+| Deployment | GitHub Actions → GitHub Pages |
+| Contentformaat | YAML in `_data/recepten.yml` (enige bron) |
 | Taal | Nederlands |
 | CSS | Vanilla CSS (geen frameworks) |
 
@@ -74,15 +74,26 @@ recepten/
 └── README.adoc
 ```
 
+## Hoe het werkt
+
+1. **Invoer:** Recepten worden ingevoerd in `_data/recepten.yml` (YAML).
+2. **Build-stap:** Het script `scripts/generate_recipes.rb` leest recepten.yml en genereert automatisch Markdown-bestanden in `_recepten/` (gegenereerd, niet gecommit).
+3. **Jekyll bouw:** Jekyll bouwt de site met homepagina (listing) en detail-pages.
+4. **Deployment:** GitHub Actions pusht het gebouwde resultaat automatisch naar GitHub Pages.
+
+**Belangrijk:** Je voegt recepten **altijd toe in `_data/recepten.yml`**. De rest gebeurt automatisch bij push.
+
 ## Plugins en afhankelijkheden
 
-Geen custom plugins. Alleen basis Jekyll met de markdown-verwerker kramdown. Dit houdt het eenvoudig en werkt met klassieke GitHub Pages.
+Geen custom Jekyll-plugins. GitHub Actions voert het Ruby-script uit vóór de Jekyll-build.
 
 ```ruby
 # Gemfile
 source "https://rubygems.org"
 gem "jekyll"
 ```
+
+GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodig)
 
 ## Stijl en opmaak
 
@@ -100,9 +111,17 @@ gem "jekyll"
 
 ## Klaar om live te gaan?
 
-1. Push naar GitHub: `git add . && git commit -m "Projectstructuur en voorbeeld-recepten" && git push`
+1. Push naar GitHub: `git push origin main`
 2. GitHub Pages instellen:
    - Ga naar Settings → Pages
-   - Kies branch: `main` (of `gh-pages` als je die hebt)
-   - Deploy
-3. Site verschijnt op `https://username.github.io/recepten`
+   - Kies source: "GitHub Actions"
+   - Volg de workflow in `.github/workflows/jekyll.yml`
+3. Wacht tot de workflow afgerond is (check "Actions" tab)
+4. Site verschijnt op `https://username.github.io/recepten`
+
+**Lokaal testen:**
+```bash
+ruby scripts/generate_recipes.rb  # Genereert _recepten/*.md
+bundle exec jekyll serve          # Start dev server op localhost:4000
+# Opmerking: lokaal moet je baseurl="" hebben (zie _config.yml)
+```

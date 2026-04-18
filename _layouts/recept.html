@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<article class="recept">
+  <h1>{{ page.naam }}</h1>
+
+  <div class="recept-meta">
+    <span class="categorie">{{ page.categorie }}</span>
+    {% if page.bereidingstijd %}
+      <span class="bereidingstijd">⏱ {{ page.bereidingstijd }} min</span>
+    {% endif %}
+    {% if page.personen %}
+      <span class="personen">👥 {{ page.personen }} personen</span>
+    {% endif %}
+  </div>
+
+  {% if page.ingredienten %}
+    <section class="ingredienten">
+      <h2>Ingrediënten</h2>
+      <ul>
+        {% for ingredient in page.ingredienten %}
+          <li>{{ ingredient }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if page.stappen %}
+    <section class="stappen">
+      <h2>Bereiding</h2>
+      <ol>
+        {% for stap in page.stappen %}
+          <li>{{ stap }}</li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+
+  {% if page.notities %}
+    <aside class="notities">
+      <h3>💡 Tip</h3>
+      <p>{{ page.notities }}</p>
+    </aside>
+  {% endif %}
+
+  <nav class="recept-nav">
+    <a href="{{ '/' | relative_url }}">← Terug naar recepten</a>
+  </nav>
+</article>

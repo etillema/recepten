@@ -1,0 +1,42 @@
+title: Recepten
+author: Esther
+description: Een verzameling van favoriete recepten
+url: "https://username.github.io/recepten"
+baseurl: "/recepten"
+
+# Jekyll instellingen
+theme: null
+plugins: []
+
+# Collecties
+collections:
+  recepten:
+    output: true
+    permalink: /recepten/:slug/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "recepten"
+    values:
+      layout: "recept"
+
+# Uitsluiting bestanden
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.adoc
+  - .vscode/
+
+# Build instellingen
+markdown: kramdown
+highlighter: rouge
+lsi: false
+safe: true
+incremental: false

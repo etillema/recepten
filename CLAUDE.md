@@ -116,9 +116,10 @@ GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodi
 ## Afspraken
 
 - **Git commits:** Commit alleen als je daarom vraagt. Maak wijzigingen klaar, vraag "zal ik committen?" en wacht op goedkeuring.
-- **Toevoegen van recepten:** Voeg altijd een nieuw bestand toe aan `_data/recepten/` (bijv. `_data/recepten/receptnaam.yml`). Zorg dat de bestandsnaam het recept goed beschrijft en uniek is; Jekyll gebruikt deze voor URL-slugs.
+- **Toevoegen van recepten:** Voeg **altijd één nieuw bestand** toe aan `_data/recepten/` (bijv. `_data/recepten/receptnaam.yml`). **Maak NOOIT een verzamelbestand** met meerdere recepten erin. Elk recept krijgt zijn eigen bestand. Zorg dat de bestandsnaam het recept goed beschrijft en uniek is; Jekyll gebruikt deze voor URL-slugs.
 - **Inhoud:** Plaats alle veldwaarden in het YAML-bestand. Laat geen velden weg; gebruik `null` of omit het veld als iets niet van toepassing is.
 - **Geen HTML in YAML:** Inhoud (ingrediënten, stappen, tips) blijft platte tekst. Zelf geen Markdown of HTML toevoegen.
+- **Eén recept per bestand:** Elk YAML-bestand in `_data/recepten/` bevat slechts één recept — nooit meerdere recepten in hetzelfde bestand.
 
 ## Klaar om live te gaan?
 

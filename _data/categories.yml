@@ -33,3 +33,7 @@
 - naam: Taart en koekjes
   slug: taart-en-koekjes
   kleur: "#7FD87F"      # Lichtgroen-midden
+
+- naam: Hoofdgerecht
+  slug: hoofdgerecht
+  kleur: "#FF6B6B"      # Rood

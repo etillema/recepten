@@ -7,7 +7,8 @@ title: Beproefd!!
 <div class="categorieën-grid">
   {% for categorie in site.data.categories %}
     {% assign count = 0 %}
-    {% for recept in site.data.recepten %}
+    {% for recept_pair in site.data.recepten %}
+      {% assign recept = recept_pair[1] %}
       {% if recept.categorie == categorie.naam %}
         {% assign count = count | plus: 1 %}
       {% endif %}

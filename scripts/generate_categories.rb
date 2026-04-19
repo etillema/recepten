@@ -5,10 +5,10 @@ require 'fileutils'
 
 # Laad categorieën uit YAML
 categorieën_file = File.join(__dir__, '..', '_data', 'categories.yml')
-recepten_file = File.join(__dir__, '..', '_data', 'recepten.yml')
+recepten_dir_path = File.join(__dir__, '..', '_data', 'recepten')
 
 categorieën = YAML.load_file(categorieën_file)
-recepten = YAML.load_file(recepten_file)
+recepten = Dir.glob(File.join(recepten_dir_path, '*.yml')).map { |f| YAML.load_file(f) }
 
 # Maak categorie map aan
 categorie_dir = File.join(__dir__, '..', '_categorie')

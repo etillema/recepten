@@ -1,7 +1,22 @@
 = Recepten
-
 Bewaren Recepten
 
+ALGEMEEN:
+*INLOGGEN TERMINAL
+ssh castel_etv
+
+Terminal in VMCode
+Opstarten Jenkyll server
+Oproepen Terminal venster CTRL+` (linksboven onder escape)
 
 Site bekijken:
 bundle exec jekyll serve
+
+
+CLAUDE 
+*CHANGE MODEL
+Claude dialoog venster
+/model…… kun je wisselen tussen de verschillende Claude modellen (eenvoudige taken, eenvoudig model)
+
+*COMMIT TO GIT
+git commit nature-journal-form

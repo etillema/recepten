@@ -12,7 +12,8 @@ layout: default
   {% assign text_colors = "white,white,white,white,white,white,white,white,white" | split: "," %}
   {% assign color_index = 0 %}
 
-  {% for recept in site.data.recepten %}
+  {% for recept_pair in site.data.recepten %}
+    {% assign recept = recept_pair[1] %}
     {% if recept.categorie == page.categorie_naam %}
       {% assign slug = recept.naam | downcase | replace: " ", "-" | replace: "é", "e" | replace: "è", "e" %}
       {% assign color = colors[color_index] %}

@@ -2,7 +2,7 @@
 
 ## Over dit project
 
-Een eenvoudige, mooie receptenwebsite gebouwd met Jekyll. Recepten worden opgeslagen als YAML-data in `_data/recepten.yml`, zodat iedereen zonder programmeerkennis recepten kan toevoegen. De site ziet er automatisch goed uit dankzij de basis-CSS.
+Een eenvoudige, mooie receptenwebsite gebouwd met Jekyll. Recepten worden opgeslagen als losse YAML-bestanden in `_data/recepten/`, zodat iedereen zonder programmeerkennis recepten kan toevoegen. De site ziet er automatisch goed uit dankzij de basis-CSS.
 
 ## Technische keuzes
 
@@ -10,13 +10,13 @@ Een eenvoudige, mooie receptenwebsite gebouwd met Jekyll. Recepten worden opgesl
 |---|---|
 | Jekyll-versie | 4.x (via Gemfile) |
 | Deployment | GitHub Actions → GitHub Pages |
-| Contentformaat | YAML in `_data/recepten.yml` (enige bron) |
+| Contentformaat | Losse YAML-bestanden in `_data/recepten/` (enige bron) |
 | Taal | Nederlands |
 | CSS | Vanilla CSS (geen frameworks) |
 
 ## Contentstructuur
 
-Alle recepten staan in **`_data/recepten.yml`**. Dit is een YAML-bestand waarin elk recept één blok is.
+Alle recepten staan in **`_data/recepten/`** als losse YAML-bestanden. Elk bestand bevat één recept.
 
 ### Verplichte velden per recept
 
@@ -28,29 +28,35 @@ Alle recepten staan in **`_data/recepten.yml`**. Dit is een YAML-bestand waarin 
 | `personen` | integer | Voor hoeveel personen het recept is |
 | `ingredienten` | array | Lijst van ingrediënten (regels) |
 | `stappen` | array | Stap-voor-stap bereiding |
-| `notities` | string (optioneel) | Extra tips of opmerkingen |
+| `tips` | array (optioneel) | Extra tips |
+| `tags` | array (optioneel) | Tags voor categorisering |
 
-### Voorbeeld van een recept
+### Voorbeeld van een recept (`_data/recepten/appeltaart.yml`)
 
 ```yaml
-- naam: Appeltaart
-  categorie: Gebak
-  bereidingstijd: 90
-  personen: 8
-  ingredienten:
-    - 300g bloem
-    - 200g boter
-    - 4 appels
-    - 2 eieren
-    - 100g suiker
-  stappen:
-    - Meng bloem en boter tot kruimels.
-    - Voeg eieren en suiker toe en kneed tot deeg.
-    - Druk in een ingevette vorm.
-    - Schil de appels en snijd in stukjes.
-    - Verdeel over het deeg.
-    - Bak 45 minuten op 180°C tot goudbruin.
-  notities: "De taart is het lekkerst als je hem een dag van tevoren maakt."
+naam: Appeltaart
+categorie: Gebak
+keuken: Nederlands
+bereidingstijd: 90
+personen: 8
+ingredienten:
+  - 300g bloem
+  - 200g boter
+  - 4 appels
+  - 2 eieren
+  - 100g suiker
+stappen:
+  - Meng bloem en boter tot kruimels.
+  - Voeg eieren en suiker toe en kneed tot deeg.
+  - Druk in een ingevette vorm.
+  - Schil de appels en snijd in stukjes.
+  - Verdeel over het deeg.
+  - Bak 45 minuten op 180°C tot goudbruin.
+tips:
+  - De taart is het lekkerst als je hem een dag van tevoren maakt.
+tags:
+  - gebak
+  - Nederlands
 ```
 
 ## Projectstructuur
@@ -58,12 +64,17 @@ Alle recepten staan in **`_data/recepten.yml`**. Dit is een YAML-bestand waarin 
 ```
 recepten/
 ├── _data/                  # YAML-bestanden met recepten
-│   └── recepten.yml
+│   ├── categories.yml      # Categorieën
+│   └── recepten/           # Losse receptbestanden
+│       ├── appeltaart.yml
+│       ├── soep.yml
+│       └── ...
 ├── _includes/              # Herbruikbare HTML-fragmenten
 │   └── nav.html           # Navigatiebalk
 ├── _layouts/              # Pagina-templates
 │   ├── default.html       # Basis-template
-│   └── recept.html        # Template voor receptdetailpagina's
+│   ├── recept.html        # Template voor receptdetailpagina's
+│   └── categorie.html     # Template voor categoriepagina's
 ├── assets/
 │   └── css/
 │       └── style.css      # Alle styling
@@ -76,12 +87,12 @@ recepten/
 
 ## Hoe het werkt
 
-1. **Invoer:** Recepten worden ingevoerd in `_data/recepten.yml` (YAML).
-2. **Build-stap:** Het script `scripts/generate_recipes.rb` leest recepten.yml en genereert automatisch Markdown-bestanden in `_recepten/` (gegenereerd, niet gecommit).
+1. **Invoer:** Recepten worden ingevoerd als losse YAML-bestanden in `_data/recepten/`.
+2. **Build-stap:** Het script `scripts/generate_recipes.rb` leest alle bestanden in `_data/recepten/` en genereert automatisch Markdown-bestanden in `_recepten/` (gegenereerd, niet gecommit).
 3. **Jekyll bouw:** Jekyll bouwt de site met homepagina (listing) en detail-pages.
 4. **Deployment:** GitHub Actions pusht het gebouwde resultaat automatisch naar GitHub Pages.
 
-**Belangrijk:** Je voegt recepten **altijd toe in `_data/recepten.yml`**. De rest gebeurt automatisch bij push.
+**Belangrijk:** Je voegt recepten **altijd toe als een nieuw bestand in `_data/recepten/`** (bijv. `_data/recepten/appeltaart.yml`). De rest gebeurt automatisch bij push.
 
 ## Plugins en afhankelijkheden
 
@@ -105,10 +116,9 @@ GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodi
 ## Afspraken
 
 - **Git commits:** Commit alleen als je daarom vraagt. Maak wijzigingen klaar, vraag "zal ik committen?" en wacht op goedkeuring.
-- **Toevoegen van recepten:** Voeg altijd een volledig blok toe aan `_data/recepten.yml`. Geen velden weglaten; gebruik `null` of een lege string als iets niet van toepassing is.
-- **Volgorde:** Recepten verschijnen op de homepagina in de volgorde van `recepten.yml`. Plaats nieuwe recepten bovenaan voor nieuwste-eerst, of onderaan voor stabiele volgorde.
-- **Naam uniek:** Zorg dat receptnamen niet identiek zijn; Jekyll gebruikt deze later voor URL's.
-- **Geen HTML in YAML:** Inhoud (ingrediënten, stappen, notities) blijft platte tekst. Zelf geen Markdown of HTML toevoegen.
+- **Toevoegen van recepten:** Voeg altijd een nieuw bestand toe aan `_data/recepten/` (bijv. `_data/recepten/receptnaam.yml`). Zorg dat de bestandsnaam het recept goed beschrijft en uniek is; Jekyll gebruikt deze voor URL-slugs.
+- **Inhoud:** Plaats alle veldwaarden in het YAML-bestand. Laat geen velden weg; gebruik `null` of omit het veld als iets niet van toepassing is.
+- **Geen HTML in YAML:** Inhoud (ingrediënten, stappen, tips) blijft platte tekst. Zelf geen Markdown of HTML toevoegen.
 
 ## Klaar om live te gaan?
 

@@ -3,15 +3,15 @@
 require 'yaml'
 require 'fileutils'
 
-# Laad recepten uit YAML
-recepten_file = File.join(__dir__, '..', '_data', 'recepten.yml')
-recepten = YAML.load_file(recepten_file)
+# Laad recepten uit losse YAML-bestanden
+recepten_dir_path = File.join(__dir__, '..', '_data', 'recepten')
+recepten = Dir.glob(File.join(recepten_dir_path, '*.yml')).map { |f| YAML.load_file(f) }
 
 # Maak _recepten map aan
 recepten_dir = File.join(__dir__, '..', '_recepten')
 FileUtils.mkdir_p(recepten_dir)
 
-# Genereer Markdown voor elk recept
+# Genereer Markdown met YAML front matter voor elk recept
 recepten.each do |recept|
   naam = recept['naam']
   slug = naam.downcase.gsub(/\s+/, '-').gsub(/[^\w-]/, '')
@@ -33,10 +33,13 @@ recepten.each do |recept|
     'tags' => recept['tags']
   }
 
-  # Schrijf Markdown bestand
+  # Schrijf Markdown bestand met YAML front matter
   filepath = File.join(recepten_dir, "#{slug}.md")
   File.open(filepath, 'w') do |f|
-    f.write(front_matter.to_yaml)
+    yaml_str = front_matter.to_yaml
+    yaml_str = yaml_str.sub(/^---\n/, '') # Verwijder eerste --- van to_yaml
+    f.write("---\n")
+    f.write(yaml_str)
     f.write("---\n")
   end
 

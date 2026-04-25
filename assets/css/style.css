@@ -208,6 +208,48 @@ body {
   margin-top: 0.5rem;
 }
 
+/* Categorie header */
+.categorie-header {
+  margin: 3rem 0 2rem 0;
+  text-align: center;
+}
+
+.categorie-header h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #042C53;
+  margin-bottom: 0.5rem;
+}
+
+.categorie-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Categorie navigatie */
+.categorie-nav {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.categorie-nav a {
+  display: inline-block;
+  background-color: #042C53;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.categorie-nav a:hover {
+  background-color: #0A3A72;
+}
+
 /* Recept detail pagina */
 .recept {
   background: white;

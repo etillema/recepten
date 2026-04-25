@@ -4,7 +4,7 @@
 
 - naam: Stoofgerecht
   slug: stoofgerecht
-  kleur: "#90EE90"      # Lichtgroen
+  kleur: "#2D8659"      # Donkergroen
 
 - naam: Pasta en Rijst
   slug: pasta-en-rijst
@@ -36,4 +36,4 @@
 
 - naam: Hoofdgerecht
   slug: hoofdgerecht
-  kleur: "#FF6B6B"      # Rood
+  kleur: "#47A373"      # Lichtergroen

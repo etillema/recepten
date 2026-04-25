@@ -106,12 +106,61 @@ gem "jekyll"
 
 GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodig)
 
-## Stijl en opmaak
+## Stijl en opmaak ("Beproefd!!" design)
 
-- **Theme:** Geen extern theme; custom CSS in `assets/css/style.css`
-- **Kleur:** Donkerblauw (`#2c3e50`) als primair, rood (`#e74c3c`) als accent
-- **Typografie:** Systeemfonts (sneller, geen externe dependencies)
-- **Layout:** Recepten tonen als kaarten in een grid (3 kolommen op desktop, 1 op mobiel)
+### Pagina
+- **Achtergrondkleur:** Warm crème `#F0EDE4`
+- **Geen header/navigatiebalk:** Minimalistisch design
+
+### Titel ("Beproefd!!")
+- **Kleur:** Donker navy `#0A2A4A`
+- **Lettertype:** Quicksand, Nunito, of Varela Round (sans-serif, afgerond)
+- **Gewicht:** 800 (extra bold)
+- **Grootte:** 56-64px
+- **Uitlijning:** Gecentreerd
+
+### Categorie-kaarten
+- **Layout:** CSS Grid, 5 kolommen
+- **Gap:** 16px
+- **Padding rondom:** 40-60px links/rechts
+- **Border-radius:** 12-14px
+- **Border:** 1.5px subtiele rand (rgba(0,0,0,0.1))
+- **Geen schaduw**
+
+#### Kaartkleuren
+| Volgorde | Categorie | Kleur |
+|----------|-----------|-------|
+| 1 | Voorgerecht | `#3A8B6E` |
+| 2 | Soep | `#4DB895` |
+| 3 | Hoofdgerecht | `#6EC9A8` |
+| 4 | Stoofgerecht | `#1B7A4E` |
+| 5 | Ovengerecht | `#2D9E3E` |
+| 6 | Pasta en Rijst | `#1A6B4A` |
+| 7 | Salades | `#4DB895` |
+| 8 | Bijgerecht | `#5AB88E` |
+| 9 | Nagerecht | `#3AA87A` |
+| 10 | Taart en koekjes | `#7ED8A8` |
+
+### Kaart-tekstualisatie
+- **Titel:** Wit `#FFFFFF`, font-weight 600, 16-18px
+- **Aantal recepten:** Wit `#FFFFFF` met lichte transparantie, font-weight 400, 14px
+
+### CSS-variabelen (in `:root`)
+```css
+--bg-page: #F0EDE4;
+--text-title: #0A2A4A;
+--text-card-heading: #FFFFFF;
+--text-card-sub: rgba(255, 255, 255, 0.8);
+--font-family: 'Quicksand', 'Nunito', 'Varela Round', sans-serif;
+--card-radius: 12px;
+--grid-columns: 5;
+--grid-gap: 16px;
+```
+
+### Files
+- **CSS:** `assets/css/style.css` (vanilla CSS, geen frameworks)
+- **Categorieën:** `_data/categories.yml` (kleur per categorie)
+- **Templates:** `_layouts/categorie.html` voor categoriepagina's
 
 ## Afspraken
 

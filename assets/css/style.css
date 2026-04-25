@@ -94,84 +94,52 @@ body {
 }
 
 /* Category card colors */
+.categorie-card {
+  color: #E6F1FB;
+}
+
+.categorie-card p {
+  color: #B5D4F4;
+}
+
 .categorie-card:nth-child(1) {
   background-color: #EF9F27;
-  color: #412402;
-}
-.categorie-card:nth-child(1) p {
-  color: #633806;
 }
 
 .categorie-card:nth-child(2) {
   background-color: #1D9E75;
-  color: #E1F5EE;
-}
-.categorie-card:nth-child(2) p {
-  color: #9FE1CB;
 }
 
 .categorie-card:nth-child(3) {
   background-color: #378ADD;
-  color: #E6F1FB;
-}
-.categorie-card:nth-child(3) p {
-  color: #B5D4F4;
 }
 
 .categorie-card:nth-child(4) {
   background-color: #9FE1CB;
-  color: #04342C;
-}
-.categorie-card:nth-child(4) p {
-  color: #085041;
 }
 
 .categorie-card:nth-child(5) {
   background-color: #185FA5;
-  color: #E6F1FB;
-}
-.categorie-card:nth-child(5) p {
-  color: #B5D4F4;
 }
 
 .categorie-card:nth-child(6) {
   background-color: #85B7EB;
-  color: #042C53;
-}
-.categorie-card:nth-child(6) p {
-  color: #0C447C;
 }
 
 .categorie-card:nth-child(7) {
   background-color: #0F6E56;
-  color: #E1F5EE;
-}
-.categorie-card:nth-child(7) p {
-  color: #9FE1CB;
 }
 
 .categorie-card:nth-child(8) {
   background-color: #E24B4A;
-  color: #FCEBEB;
-}
-.categorie-card:nth-child(8) p {
-  color: #F7C1C1;
 }
 
 .categorie-card:nth-child(9) {
   background-color: #5DCAA5;
-  color: #04342C;
-}
-.categorie-card:nth-child(9) p {
-  color: #085041;
 }
 
 .categorie-card:nth-child(10) {
   background-color: #FAC775;
-  color: #412402;
-}
-.categorie-card:nth-child(10) p {
-  color: #633806;
 }
 
 .categorie-emoji {

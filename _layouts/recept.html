@@ -8,13 +8,13 @@ layout: default
   <div class="recept-meta">
     <span class="categorie">{{ page.categorie }}</span>
     {% if page.keuken %}
-      <span class="keuken">🌍 {{ page.keuken }}</span>
+      <span class="keuken">{{ page.keuken }}</span>
     {% endif %}
     {% if page.bereidingstijd %}
-      <span class="bereidingstijd">⏱ {{ page.bereidingstijd }} min</span>
+      <span class="bereidingstijd">{{ page.bereidingstijd }} min</span>
     {% endif %}
     {% if page.personen %}
-      <span class="personen">👥 {{ page.personen }} personen</span>
+      <span class="personen">{{ page.personen }} personen</span>
     {% endif %}
   </div>
 
@@ -56,7 +56,7 @@ layout: default
 
   {% if page.tips %}
     <aside class="tips">
-      <h3>💡 Tips</h3>
+      <h3>Tips</h3>
       <ul>
         {% for tip in page.tips %}
           <li>{{ tip }}</li>
@@ -79,7 +79,7 @@ layout: default
   </div>
 
   <nav class="recept-nav">
-    <a href="{{ '/' | relative_url }}">← Terug naar overzicht</a>
+    <a href="{{ '/' | relative_url }}">Terug naar overzicht</a>
   </nav>
 </article>
 

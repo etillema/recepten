@@ -3,7 +3,7 @@ Bewaren Recepten
 
 ALGEMEEN:
 *INLOGGEN TERMINAL
-ssh castel_etv
+ssh vm-esther-dev-01-jekyll
 
 Terminal in VMCode
 Opstarten Jenkyll server

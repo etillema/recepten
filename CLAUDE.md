@@ -169,6 +169,7 @@ GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodi
 - **Inhoud:** Plaats alle veldwaarden in het YAML-bestand. Laat geen velden weg; gebruik `null` of omit het veld als iets niet van toepassing is.
 - **Geen HTML in YAML:** Inhoud (ingrediënten, stappen, tips) blijft platte tekst. Zelf geen Markdown of HTML toevoegen.
 - **Eén recept per bestand:** Elk YAML-bestand in `_data/recepten/` bevat slechts één recept — nooit meerdere recepten in hetzelfde bestand.
+- **Geen emojis:** Gebruik geen emojis in templates, labels, of navigatie. De site moet minimalistisch en schoon blijven.
 
 ## Klaar om live te gaan?
 

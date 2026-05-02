@@ -16,8 +16,9 @@ layout: default
     {% assign recept = recept_pair[1] %}
     {% if recept.categorie == page.categorie_naam %}
       {% assign slug = recept.naam | downcase | replace: " ", "-" | replace: "é", "e" | replace: "è", "e" %}
-      {% assign color = colors[color_index] %}
-      {% assign text_color = text_colors[color_index] %}
+      {% assign color_mod = color_index | modulo: 9 %}
+      {% assign color = colors[color_mod] %}
+      {% assign text_color = text_colors[color_mod] %}
       <a href="{{ slug | prepend: '/recepten/' | append: '/' | relative_url }}" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
         <h3>{{ recept.naam }}</h3>
         <p class="recept-categorie">{{ recept.categorie }}</p>

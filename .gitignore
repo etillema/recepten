@@ -8,3 +8,5 @@ vendor/
 # Gegenereerde bestanden (uit YAML)
 _recepten/
 _categorie/
+# No developer specific configuration files
+_config-dev.yml

@@ -12,3 +12,5 @@ Met behulp van de `Makefile` kun je de Jekyll site laten genereren.
 Indien de git repo vers is opgehaald, draai dan eerst `make install`.
 Gebruik daarna `make serve` om de site te maken, en lokaal beschikbaar te stellen.
 Zie de `Makefile` voor de andere commando's.
+TIP: Hernoem de file `_config_dev-sample.yml` naar `_config_dev.yml` en pas zo nodig de instellingen aan. Deze file wordt automatisch meegenomen bij het draaien van `make serve` en overschrijft de instellingen in `_config.yml`. Zo kun je bijvoorbeeld een andere `baseurl` instellen voor lokaal testen.
+TIP: De lokale site is beschikbaar op `http://localhost:4000/recepten` (of `http://localhost:4000` als je `baseurl` in `_config_dev.yml` hebt ingesteld op "").

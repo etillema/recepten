@@ -1,8 +1,8 @@
 title: Beproefd!!
 author: Esther
 description: Een verzameling van favoriete recepten
-url: "https://etillema.github.io/recepten"
-baseurl: ""  # Lokaal testen: "" / GitHub Pages: "/recepten"
+url: ""
+baseurl: "/recepten"  # Lokaal testen: "" / GitHub Pages: "/recepten"
 
 # Jekyll instellingen
 theme: null

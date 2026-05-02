@@ -1,22 +1,14 @@
 = Recepten
-Bewaren Recepten
 
-ALGEMEEN:
-*INLOGGEN TERMINAL
-ssh vm-esther-dev-01-jekyll
+Voor het publisheren van beproefde recepten.
 
-Terminal in VMCode
-Opstarten Jenkyll server
-Oproepen Terminal venster CTRL+` (linksboven onder escape)
+== Recepten bewerken
 
-Site bekijken:
-bundle exec jekyll serve
+In `_data/recepten` is per recept een yaml file aanwezig.
 
+== De recepten site lokaal bekijken
 
-CLAUDE 
-*CHANGE MODEL
-Claude dialoog venster
-/model…… kun je wisselen tussen de verschillende Claude modellen (eenvoudige taken, eenvoudig model)
-
-*COMMIT TO GIT
-git commit nature-journal-form
+Met behulp van de `Makefile` kun je de Jekyll site laten genereren.
+Indien de git repo vers is opgehaald, draai dan eerst `make install`.
+Gebruik daarna `make serve` om de site te maken, en lokaal beschikbaar te stellen.
+Zie de `Makefile` voor de andere commando's.

@@ -1,0 +1,54 @@
+= Developer Tips
+
+== Algemeen
+
+* Inloggen via Terminal op MacOS
++
+----
+ssh vm-esther-dev-01-jekyll
+----
++
+Dit is nodig om hierna gemakkelijk vanuit VsCode een ssh koppeling te maken
+richting deze server (vm).
+En het is nodig voor port forwarding. Ofwel om via een lokale poort localhost:4000
+te forwarden naar de poort 4000 op de server (vm) waar de Jekyll site draait. En ook 
+de code zich bevindt.
+
+* Terminal in VsCode
+** Site bekijken
++
+----
+make serve
+----
++
+TIP: Oproepen Terminal venster <CTRL>+<`> (linksboven onder escape)
+
+
+== Claude
+
+* Change model
++
+Claude dialoog venster
++
+----
+/model...
+----
++
+Wisselen tussen de verschillende Claude modellen (eenvoudige taken, eenvoudig model)
+
+== Git
+
+* Commit vanuit terminal
++
+----
+git commit -m <bericht dat bij deze commit hoort"
+git commit -m "Wijzigen xyz gedaan"
+----
+
+* publisheren
++
+----
+git push
+----
++
+Alle lokale commit naar de (default) centrale git repo pushen.

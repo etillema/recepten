@@ -1,7 +1,9 @@
 naam: Zoete gratin
 categorie: Ovengerecht
 bereidingstijd: 20
-personen: 6
+oventemperatuur: 180
+oventijd: 45
+personen: 4
 ingredienten:
   - 500 gram perzikken (of abrikozen) op siroop
   - 250 gram schelpjes macaroni

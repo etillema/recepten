@@ -21,8 +21,6 @@ layout: default
       {% assign text_color = text_colors[color_mod] %}
       <a href="{% if site.baseurl %}/recepten/{% endif %}{{ slug }}/" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
         <h3>{{ recept.naam }}</h3>
-        <p>{{ recept.categorie }}</p>
-        <span class="categorie">{{ recept.categorie }}</span>
       </a>
       {% assign color_index = color_index | plus: 1 %}
     {% endif %}

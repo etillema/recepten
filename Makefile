@@ -1,8 +1,12 @@
-serve:
+serve: generate
 	bundle exec jekyll serve --config _config.yml,_config_dev.yml
 
-build:
+build: generate
 	bundle exec jekyll build
+
+generate:
+	ruby scripts/generate_categories.rb
+	ruby scripts/generate_recipes.rb
 
 clean:
 	bundle exec jekyll clean

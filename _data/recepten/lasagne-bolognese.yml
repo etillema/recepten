@@ -1,42 +1,47 @@
 naam: Lasagne bolognese
-categorie: Hoofdgerecht
+categorie: Ovengerecht
 keuken: Italiaans
 bereidingstijd: 90
 oventemperatuur: 180
 oventijd: 30
+personen: 6
+
 ingredienten:
-- olijfolie
-- 2 a 3 uien
-- 2 teentjes knoflook
-- 1 winterwortel
-- 1 a 2 stengels bleekselderij
-- groot blikje tomatenpuree
-- blikje tomatenblokjes
-- 300 gram rundergehakt
-- basilicum, marjolein, oregano, peterselie, paprikapoeder
-- blaadje laurier
-- 50 gram boter
-- beetje bloem
-- beetje melk
-- kaas
-- mozzarella
-- peper en zout
-- lasagnebladen
+  - olijfolie
+  - 2 a 3 uien
+  - 2 teentjes knoflook
+  - 1 winterwortel
+  - 1 a 2 stengels bleekselderij
+  - groot blikje tomatenpuree
+  - blikje tomatenblokjes
+  - 300g rundergehakt
+  - basilicum, marjolein, oregano, peterselie, paprikapoeder
+  - blaadje laurier
+  - 50g boter
+  - beetje bloem
+  - beetje melk
+  - kaas
+  - mozzarella
+  - peper en zout
+  - lasagnebladen
+
 stappen:
-- Snijd de groente in kleine blokjes. Verhit een beetje olie in een koekenpan en fruit hierin de ui. Voeg eerst de knoflook toe en later ook de wortel en selderij. Laat de groente zacht worden. Haal de groente uit de koekenpan.
-- Bak de gehakt in de koekenpan rul en voeg de kruiden en de peper en zout toe.
-- Verhit de tomatenpuree in een braadpan en zorg ervoor dat het onder het doorroeren goed warm wordt. De zure geur moet verdwijnen.
-- Voeg eerst de groenten en vervolgens de gehakt toe aan de tomatenpuree. Voeg tot slot de tomatenblokjes en het laurierblad toe. Laat het mengsel 45 minuten met de deksel op de pan doorwarmen.
-- Maak een bechamelsaus van de boter, de bloem en de melk. Breng de saus op smaak met peper en zout.
-- Verdeel 1/3 gehaktmengsel, 1/3 saus en 1/3 kaas over een ingevette overschaal. Doe op de saus een lasagneblad. Herhaal dit 3 keer. Eindig met een laagje kaas.
-- Plaats de lasagne 30 minuten in een op 180 graden voorverwarmde oven. Dek de lasagne de eerste 15 minuten af met een aluminium folie. Verwijder de folie voor de laatste 15 minuten.
+  - Snijd de groente in kleine blokjes. Verhit een beetje olie in een koekenpan en fruit hierin de ui. Voeg eerst de knoflook toe en later ook de wortel en selderij. Laat de groente zacht worden. Haal de groente uit de koekenpan.
+  - Bak de gehakt in de koekenpan rul en voeg de kruiden en de peper en zout toe.
+  - Verhit de tomatenpuree in een braadpan en zorg ervoor dat het onder het doorroeren goed warm wordt. De zure geur moet verdwijnen.
+  - Voeg eerst de groenten en vervolgens de gehakt toe aan de tomatenpuree. Voeg tot slot de tomatenblokjes en het laurierblad toe. Laat het mengsel 45 minuten met de deksel op de pan doorwarmen.
+  - Maak een bechamelsaus van de boter, de bloem en de melk. Breng de saus op smaak met peper en zout.
+  - Verdeel 1/3 gehaktmengsel, 1/3 saus en 1/3 kaas over een ingevette overschaal. Doe op de saus een lasagneblad. Herhaal dit 3 keer. Eindig met een laagje kaas.
+  - Plaats de lasagne 30 minuten in een op 180 graden voorverwarmde oven. Dek de lasagne de eerste 15 minuten af met een aluminium folie. Verwijder de folie voor de laatste 15 minuten.
+
 tips:
-- De lasagne is klaar als hij knettert.
+  - De lasagne is klaar als hij 'knettert'.
+
 tags:
-- hoofdgerecht
-- overschotel
-- lasagne
-- Italiaans
-- gehakt
-- pasta
-- oven
+  - ovengerecht
+  - overschotel
+  - lasagne
+  - Italiaans
+  - gehakt
+  - pasta
+  - oven

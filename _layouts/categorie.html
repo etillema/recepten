@@ -19,7 +19,7 @@ layout: default
       {% assign color_mod = color_index | modulo: 9 %}
       {% assign color = colors[color_mod] %}
       {% assign text_color = text_colors[color_mod] %}
-      <a href="{{ slug | append: '/' | prepend: '/' | relative_url }}" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
+      <a href="{{ slug | append: '/' | prepend: 'recepten/' | relative_url }}" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
         <h3>{{ recept.naam }}</h3>
         <p>{{ recept.categorie }}</p>
         <span class="categorie">{{ recept.categorie }}</span>

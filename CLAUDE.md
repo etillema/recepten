@@ -69,6 +69,8 @@ recepten/
 │       ├── appeltaart.yml
 │       ├── soep.yml
 │       └── ...
+├── _recepten/              # Gegenereerd door scripts (niet gecommit)
+├── _categorie/             # Gegenereerd door scripts (niet gecommit)
 ├── _includes/              # Herbruikbare HTML-fragmenten
 │   └── nav.html           # Navigatiebalk
 ├── _layouts/              # Pagina-templates
@@ -78,8 +80,14 @@ recepten/
 ├── assets/
 │   └── css/
 │       └── style.css      # Alle styling
+├── scripts/
+│   ├── generate_recipes.rb    # Genereert _recepten/*.md
+│   └── generate_categories.rb # Genereert _categorie/*.md
+├── .claude/               # Claude Code skills en instellingen
 ├── _site/                 # Build output (don't edit)
-├── _config.yml            # Jekyll configuratie
+├── _config.yml            # Jekyll configuratie (productie)
+├── _config-dev.yml        # Jekyll configuratie (lokaal, baseurl="")
+├── Makefile               # Handige commando's (make serve, make build)
 ├── Gemfile                # Ruby dependencies
 ├── index.md               # Homepagina
 └── README.adoc
@@ -164,7 +172,7 @@ GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodi
 
 ## Afspraken
 
-- **Git commits:** Commit alleen als je daarom vraagt. Maak wijzigingen klaar, vraag "zal ik committen?" en wacht op goedkeuring.
+- **Git commits:** Commit alleen als developer daarom vraagt.
 - **Toevoegen van recepten:** Voeg **altijd één nieuw bestand** toe aan `_data/recepten/` (bijv. `_data/recepten/receptnaam.yml`). **Maak NOOIT een verzamelbestand** met meerdere recepten erin. Elk recept krijgt zijn eigen bestand. Zorg dat de bestandsnaam het recept goed beschrijft en uniek is; Jekyll gebruikt deze voor URL-slugs.
 - **Inhoud:** Plaats alle veldwaarden in het YAML-bestand. Laat geen velden weg; gebruik `null` of omit het veld als iets niet van toepassing is.
 - **Geen HTML in YAML:** Inhoud (ingrediënten, stappen, tips) blijft platte tekst. Zelf geen Markdown of HTML toevoegen.
@@ -183,7 +191,6 @@ GitHub Actions workflow: `.github/workflows/jekyll.yml` (geen verdere setup nodi
 
 **Lokaal testen:**
 ```bash
-ruby scripts/generate_recipes.rb  # Genereert _recepten/*.md
-bundle exec jekyll serve          # Start dev server op localhost:4000
-# Opmerking: lokaal moet je baseurl="" hebben (zie _config.yml)
+make serve  # Genereert recepten + categorieën, start dev server op localhost:4000
 ```
+De `_config_dev.yml` zorgt automatisch voor `baseurl=""` bij lokaal testen.

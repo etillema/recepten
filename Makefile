@@ -1,5 +1,5 @@
 serve: generate
-	bundle exec jekyll serve --config _config.yml,_config_dev.yml
+	bundle exec jekyll serve --config _config.yml,_config-dev.yml
 
 build: generate
 	bundle exec jekyll build

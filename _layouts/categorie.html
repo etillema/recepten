@@ -12,14 +12,12 @@ layout: default
   {% assign text_colors = "white,white,white,white,white,white,white,white,white" | split: "," %}
   {% assign color_index = 0 %}
 
-  {% for recept_pair in site.data.recepten %}
-    {% assign recept = recept_pair[1] %}
+  {% for recept in site.recepten %}
     {% if recept.categorie == page.categorie_naam %}
-      {% assign slug = recept.naam | downcase | replace: " ", "-" | replace: "é", "e" | replace: "è", "e" %}
       {% assign color_mod = color_index | modulo: 9 %}
       {% assign color = colors[color_mod] %}
       {% assign text_color = text_colors[color_mod] %}
-      <a href="{% if site.baseurl %}/recepten/{% endif %}{{ slug }}/" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
+      <a href="{{ recept.url | relative_url }}" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
         <h3>{{ recept.naam }}</h3>
         <p class="recept-categorie">{{ recept.categorie }}</p>
       </a>

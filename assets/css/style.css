@@ -197,6 +197,15 @@ body {
   opacity: 0.9;
 }
 
+.recept-card .recept-meta-card {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.85;
+  display: flex;
+  gap: 8px;
+}
+
 .recept-card .categorie {
   display: inline-block;
   background-color: var(--color-light);

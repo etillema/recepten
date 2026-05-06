@@ -19,7 +19,10 @@ layout: default
       {% assign text_color = text_colors[color_mod] %}
       <a href="{{ recept.url | relative_url }}" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
         <h3>{{ recept.naam }}</h3>
-        <p class="recept-categorie">{{ recept.categorie }}</p>
+        <p class="recept-meta-card">
+          {% if recept.bereidingstijd %}<span>{{ recept.bereidingstijd }} min</span>{% endif %}
+          {% if recept.personen %}<span>{{ recept.personen }} personen</span>{% endif %}
+        </p>
       </a>
       {% assign color_index = color_index | plus: 1 %}
     {% endif %}

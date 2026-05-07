@@ -10,5 +10,11 @@
   <main class="container">
     {{ content }}
   </main>
+  <script>
+    const palette = [{% for color in site.data.colors %}"{{ color }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+    document.querySelectorAll('.categorie-card, .recept-card').forEach(el => {
+      el.style.backgroundColor = palette[Math.floor(Math.random() * palette.length)];
+    });
+  </script>
 </body>
 </html>

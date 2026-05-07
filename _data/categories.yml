@@ -1,39 +1,29 @@
 - naam: Voorgerecht
   slug: voorgerecht
-  kleur: "#3A8B6E"
 
 - naam: Soep
   slug: soep
-  kleur: "#4DB895"
 
 - naam: Hartige taarten
   slug: hartige-taarten
-  kleur: "#6EC9A8"
 
 - naam: Stoofgerecht
   slug: stoofgerecht
-  kleur: "#1B7A4E"
 
 - naam: Ovengerecht
   slug: ovengerecht
-  kleur: "#2D9E3E"
 
 - naam: Pasta en Rijst
   slug: pasta-en-rijst
-  kleur: "#1A6B4A"
 
 - naam: Salades
   slug: salades
-  kleur: "#4DB895"
 
 - naam: Bijgerecht
   slug: bijgerecht
-  kleur: "#5AB88E"
 
 - naam: Nagerecht
   slug: nagerecht
-  kleur: "#3AA87A"
 
 - naam: Taart en koekjes
   slug: taart-en-koekjes
-  kleur: "#7ED8A8"

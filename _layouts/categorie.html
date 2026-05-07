@@ -8,23 +8,15 @@ layout: default
 </div>
 
 <div class="recepten-grid">
-  {% assign colors = "#3A8B6E,#4DB895,#6EC9A8,#1B7A4E,#2D9E3E,#1A6B4A,#5AB88E,#3AA87A,#7ED8A8" | split: "," %}
-  {% assign text_colors = "white,white,white,white,white,white,white,white,white" | split: "," %}
-  {% assign color_index = 0 %}
-
   {% for recept in site.recepten %}
     {% if recept.categorie == page.categorie_naam %}
-      {% assign color_mod = color_index | modulo: 9 %}
-      {% assign color = colors[color_mod] %}
-      {% assign text_color = text_colors[color_mod] %}
-      <a href="{{ recept.url | relative_url }}" class="recept-card" style="background-color: {{ color }}; color: {{ text_color }};">
+      <a href="{{ recept.url | relative_url }}" class="recept-card">
         <h3>{{ recept.naam }}</h3>
         <p class="recept-meta-card">
           {% if recept.bereidingstijd %}<span>{{ recept.bereidingstijd }} min</span>{% endif %}
           {% if recept.personen %}<span>{{ recept.personen }} personen</span>{% endif %}
         </p>
       </a>
-      {% assign color_index = color_index | plus: 1 %}
     {% endif %}
   {% endfor %}
 </div>

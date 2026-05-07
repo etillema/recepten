@@ -13,8 +13,7 @@ title: Beproefd!!
         {% assign count = count | plus: 1 %}
       {% endif %}
     {% endfor %}
-    
-    <a href="{{ categorie.slug | prepend: '/categorie/' | append: '/' | relative_url }}" class="categorie-card" style="background-color: {{ categorie.kleur }}">
+    <a href="{{ categorie.slug | prepend: '/categorie/' | append: '/' | relative_url }}" class="categorie-card">
       <h3>{{ categorie.naam }}</h3>
       <p>{{ count }} recepten</p>
     </a>

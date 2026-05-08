@@ -5,15 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script>
+    (function() {
+      var stored = localStorage.getItem('theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+    })();
+  </script>
 </head>
 <body>
+  <button class="theme-toggle" id="themeToggle" aria-label="Schakel thema"></button>
   <main class="container">
     {{ content }}
   </main>
   <script>
-    const palette = [{% for color in site.data.colors %}"{{ color }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
-    document.querySelectorAll('.categorie-card, .recept-card').forEach(el => {
-      el.style.backgroundColor = palette[Math.floor(Math.random() * palette.length)];
+    var lightPalette = [{% for color in site.data.colors.light %}"{{ color }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+    var darkPalette  = [{% for color in site.data.colors.dark  %}"{{ color }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+
+    function isDark() {
+      var theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'dark') return true;
+      if (theme === 'light') return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function applyPalette() {
+      var palette = isDark() ? darkPalette : lightPalette;
+      document.querySelectorAll('.categorie-card, .recept-card').forEach(function(el) {
+        el.style.backgroundColor = palette[Math.floor(Math.random() * palette.length)];
+      });
+    }
+
+    function updateToggleLabel() {
+      document.getElementById('themeToggle').textContent = isDark() ? 'Licht' : 'Donker';
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var currentlyDark = current === 'dark' || (!current && systemDark);
+      var next = currentlyDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggleLabel();
+      applyPalette();
+    });
+
+    applyPalette();
+    updateToggleLabel();
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+      if (!localStorage.getItem('theme')) {
+        updateToggleLabel();
+        applyPalette();
+      }
     });
   </script>
 </body>

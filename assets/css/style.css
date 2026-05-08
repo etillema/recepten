@@ -4,23 +4,82 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 :root {
-  --color-primary: #2c3e50;
-  --color-accent: #e74c3c;
-  --color-light: #ecf0f1;
+  --bg-page: #F3F4F2;
+  --text-title: #0A2A4A;
+  --text-body: #1a2a1a;
+  --text-muted: #555;
+  --recept-bg: #ffffff;
+  --recept-border: rgba(0, 0, 0, 0.1);
+  --meta-bg: #F3F4F2;
+  --meta-text: #0A2A4A;
+  --tips-bg: #F3F4F2;
+  --tag-bg: #F3F4F2;
+  --tag-text: #0A2A4A;
+  --tag-border: rgba(0, 0, 0, 0.08);
+  --nav-border: #ddd;
+  --accent: #5DA33A;
+  --accent-hover: #478A2F;
   --color-border: #bdc3c7;
-  --color-text: #2c3e50;
   --spacing-unit: 1rem;
+  --toggle-bg: rgba(0, 0, 0, 0.08);
+  --toggle-color: #0A2A4A;
+}
+
+[data-theme="dark"] {
+  --bg-page: #12161A;
+  --text-title: #e8f5e2;
+  --text-body: #c8dfc0;
+  --text-muted: #8aaa80;
+  --recept-bg: #1e2820;
+  --recept-border: rgba(255, 255, 255, 0.08);
+  --meta-bg: #1a2a1a;
+  --meta-text: #c8dfc0;
+  --tips-bg: #1a2a1a;
+  --tag-bg: #1a2a1a;
+  --tag-text: #c8dfc0;
+  --tag-border: rgba(255, 255, 255, 0.08);
+  --nav-border: #2a3a2a;
+  --accent: #6CAF50;
+  --accent-hover: #8BC38A;
+  --color-border: #2a3a2a;
+  --toggle-bg: rgba(255, 255, 255, 0.08);
+  --toggle-color: #c8dfc0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-page: #12161A;
+    --text-title: #e8f5e2;
+    --text-body: #c8dfc0;
+    --text-muted: #8aaa80;
+    --recept-bg: #1e2820;
+    --recept-border: rgba(255, 255, 255, 0.08);
+    --meta-bg: #1a2a1a;
+    --meta-text: #c8dfc0;
+    --tips-bg: #1a2a1a;
+    --tag-bg: #1a2a1a;
+    --tag-text: #c8dfc0;
+    --tag-border: rgba(255, 255, 255, 0.08);
+    --nav-border: #2a3a2a;
+    --accent: #6CAF50;
+    --accent-hover: #8BC38A;
+    --color-border: #2a3a2a;
+    --toggle-bg: rgba(255, 255, 255, 0.08);
+    --toggle-color: #c8dfc0;
+  }
 }
 
 body {
   font-family: 'Quicksand', 'Nunito', 'Varela Round', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
-  color: var(--color-text);
-  background-color: #EDF7F1;
+  color: var(--text-body);
+  background-color: var(--bg-page);
   font-size: 1.1rem;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Navbar */
@@ -51,11 +110,35 @@ body {
   font-size: 1.8rem;
 }
 
+/* Thema-schakelaar */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--toggle-bg);
+  color: var(--toggle-color);
+  border: 1px solid var(--recept-border);
+  border-radius: 20px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
 /* Hero titel */
 .hero-title {
   font-size: 3.75rem;
   font-weight: 800;
-  color: #0A2A4A;
+  color: var(--text-title);
   text-align: center;
   margin: 3rem 0 2.5rem 0;
   letter-spacing: 1px;
@@ -116,9 +199,16 @@ body {
   text-align: center;
 }
 
+/* Gedeelde subtitel-stijl: "X recepten" op homepagina én "X min · Y personen" in submenu */
+.categorie-card p,
+.recept-card .recept-meta-card {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
 .categorie-card p {
   margin: 0.5rem 0 0 0;
-  font-size: 18px;
   text-align: center;
 }
 
@@ -162,9 +252,6 @@ body {
 
 .recept-card .recept-meta-card {
   margin: 4px 0 0;
-  font-size: 0.95rem;
-  font-weight: 400;
-  opacity: 0.85;
   display: flex;
   gap: 8px;
 }
@@ -188,26 +275,26 @@ body {
 .categorie-header h1 {
   font-size: 3.75rem;
   font-weight: 800;
-  color: #0A2A4A;
+  color: var(--text-title);
   margin-bottom: 0.5rem;
 }
 
 .categorie-header p {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-muted);
 }
 
 /* Categorie navigatie */
 .categorie-nav {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--nav-border);
   text-align: center;
 }
 
 .categorie-nav a {
   display: inline-block;
-  background-color: #3A8B6E;
+  background-color: var(--accent);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
@@ -219,23 +306,24 @@ body {
 }
 
 .categorie-nav a:hover {
-  background-color: #2D7A5E;
+  background-color: var(--accent-hover);
 }
 
 /* Recept detail pagina */
 .recept {
-  background: white;
+  background: var(--recept-bg);
   padding: 2.5rem;
   border-radius: 12px;
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border: 1.5px solid var(--recept-border);
   max-width: 900px;
   margin: 2rem auto;
+  transition: background 0.3s;
 }
 
 .recept h1 {
-  color: #0A2A4A;
+  color: var(--text-title);
   margin-bottom: 1.5rem;
-  border-bottom: 3px solid #3A8B6E;
+  border-bottom: 3px solid var(--accent);
   padding-bottom: 0.75rem;
   font-size: 2.5rem;
   font-weight: 700;
@@ -250,26 +338,26 @@ body {
 
 .recept-meta span {
   display: inline-block;
-  background-color: #F0EDE4;
+  background-color: var(--meta-bg);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   font-size: 0.95rem;
   margin-right: 0.5rem;
-  color: #0A2A4A;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--meta-text);
+  border: 1px solid var(--tag-border);
 }
 
 .recept-meta .categorie {
-  background-color: #3A8B6E;
+  background-color: var(--accent);
   color: white;
 }
 
 .recept-details {
-  background-color: #F0EDE4;
+  background-color: var(--meta-bg);
   padding: 1.5rem;
   border-radius: 8px;
   margin: 1.5rem 0;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--tag-border);
 }
 
 .recept-details p {
@@ -284,11 +372,11 @@ body {
 
 .ingredienten h2,
 .stappen h2 {
-  color: #0A2A4A;
+  color: var(--text-title);
   margin-bottom: 1.5rem;
   font-size: 1.7rem;
   font-weight: 700;
-  border-bottom: 2px solid #3A8B6E;
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 0.5rem;
 }
 
@@ -309,16 +397,16 @@ body {
 }
 
 .tips {
-  background-color: #F0EDE4;
+  background-color: var(--tips-bg);
   padding: 1.5rem;
-  border-left: 4px solid #3A8B6E;
+  border-left: 4px solid var(--accent);
   border-radius: 8px;
   margin: 2rem 0;
 }
 
 .tips h3 {
   margin-bottom: 1rem;
-  color: #0A2A4A;
+  color: var(--text-title);
   font-weight: 700;
 }
 
@@ -338,26 +426,26 @@ body {
 
 .tag {
   display: inline-block;
-  background-color: #F0EDE4;
-  color: #0A2A4A;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: 0.85rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--tag-border);
 }
 
 /* Navigatie */
 .recept-nav {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--nav-border);
 }
 
 .recept-nav a {
   display: inline-block;
-  background-color: #3A8B6E;
+  background-color: var(--accent);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -368,7 +456,7 @@ body {
 }
 
 .recept-nav a:hover {
-  background-color: #2D7A5E;
+  background-color: var(--accent-hover);
 }
 
 /* Knoppen */
@@ -389,12 +477,12 @@ body {
 }
 
 .btn-primary {
-  background-color: #3A8B6E;
+  background-color: var(--accent);
   color: white;
 }
 
 .btn-primary:hover {
-  background-color: #2D7A5E;
+  background-color: var(--accent-hover);
 }
 
 .recept-actions {

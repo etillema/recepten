@@ -119,10 +119,13 @@ body {
   background: var(--toggle-bg);
   color: var(--toggle-color);
   border: 1px solid var(--recept-border);
-  border-radius: 20px;
-  padding: 0.4rem 0.85rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   backdrop-filter: blur(4px);
